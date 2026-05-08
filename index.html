@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F5F2;
+    --surface: #FFFFFF;
+    --text: #1A1A1A;
+    --text-soft: #7A756F;
+    --accent: #C8A882;
+    --border: #E8E4DF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    padding: 56px 24px 40px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .hero p {
+    color: var(--text-soft);
+    font-size: 14px;
+  }
+
+  .section {
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 10px;
+  }
+
+  .card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  .copy-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  .copy-field code {
+    font-family: 'DM Sans', monospace;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .copy-field span {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .spot {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .spot-name {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .spot-desc {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 2px;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .contact-btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .contact-btn.primary { background: var(--text); color: #fff; }
+  .contact-btn.secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+
+  .info-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .info-item:last-child { border-bottom: none; }
+
+  .info-item strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .info-item p {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .info-item a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 32px 24px 48px;
+    font-size: 13px;
+    color: var(--text-soft);
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 22px;
+    border-radius: 100px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Welcome</h1>
+  <p>Your Fountain Square guest guide.</p>
+</div>
+
+<!-- ═══ ESSENTIALS ═══ -->
+<section class="section">
+  <div class="section-title">Essentials</div>
+
+  <div class="card">
+    <h3>🔑 Door Code</h3>
+    <div class="copy-field" onclick="copy('1234')">
+      <code>1234</code>
+      <span>Copy</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📶 Wi-Fi</h3>
+    <p>Network</p>
+    <div class="copy-field" onclick="copy('YourNetworkName')">
+      <code>YourNetworkName</code>
+      <span>Copy</span>
+    </div>
+    <p style="margin-top:10px">Password</p>
+    <div class="copy-field" onclick="copy('YourPassword')">
+      <code>YourPassword</code>
+      <span>Copy</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>🅿️ Parking</h3>
+    <p>Free street parking available. Driveway is also open.</p>
+  </div>
+</section>
+
+<!-- ═══ HOUSE RULES ═══ -->
+<section class="section">
+  <div class="section-title">House Rules</div>
+  <div class="card">
+    <p><strong>Check-out:</strong> 11:00 AM</p>
+    <p><strong>Quiet hours:</strong> After 10 PM</p>
+    <p><strong>No smoking</strong> indoors</p>
+    <p><strong>Lock up</strong> when you leave</p>
+  </div>
+</section>
+
+<!-- ═══ FOOD & DRINK ═══ -->
+<section class="section">
+  <div class="section-title">Food &amp; Drink</div>
+
+  <a class="spot" href="https://order.toasttab.com/online/hotboys-indianapolis-fountain-square" target="_blank">
+    <div class="spot-name">World Famous Hot Boys</div>
+    <div class="spot-desc">Oakland-style hot chicken. Pick your spice level. Trivia nights &amp; arcade games.</div>
+  </a>
+
+  <a class="spot" href="https://locomexicanrestaurant.com/" target="_blank">
+    <div class="spot-name">Loco Mexican Restaurant</div>
+    <div class="spot-desc">Great margaritas, fajitas, and barbacoa tacos. Family-friendly with a patio.</div>
+  </a>
+
+  <a class="spot" href="https://yasogrill.com/indianapolis-fountain-square-yaso-grill-food-menu" target="_blank">
+    <div class="spot-name">Yaso Jamaican Grill</div>
+    <div class="spot-desc">Family-owned. Jerk chicken, oxtails, curry goat. Authentic Jamaican flavors.</div>
+  </a>
+
+  <a class="spot" href="https://www.thedugoutindy.com/" target="_blank">
+    <div class="spot-name">The Dugout</div>
+    <div class="spot-desc">No-frills neighborhood pub. Solid bar food, cheap drinks, great patio.</div>
+  </a>
+
+  <a class="spot" href="https://www.parlordoughnuts.com/menu" target="_blank">
+    <div class="spot-name">Parlor Doughnuts</div>
+    <div class="spot-desc">New in Fountain Square. Famous layered doughnuts, specialty coffee, keto &amp; vegan options.</div>
+  </a>
+
+  <a class="spot" href="https://siamsquareindy.com/" target="_blank">
+    <div class="spot-name">Siam Square</div>
+    <div class="spot-desc">Best Thai in Indy. Drunken noodles, green curry, pad thai. On Virginia Ave.</div>
+  </a>
+
+  <a class="spot" href="https://www.sqrscoop.com/" target="_blank">
+    <div class="spot-name">Square Scoop</div>
+    <div class="spot-desc">Local ice cream shop. Rotating flavors, shakes, vintage candy &amp; bottled sodas.</div>
+  </a>
+
+  <a class="spot" href="https://order.toasttab.com/online/upland-brewing-fountain-square-1201-prospect-street" target="_blank">
+    <div class="spot-name">Upland Brewery</div>
+    <div class="spot-desc">22 beers on tap, pub classics, huge patio. Dog-friendly. Right off the Cultural Trail.</div>
+  </a>
+
+  <a class="spot" href="https://www.hongkongchinain.com/" target="_blank">
+    <div class="spot-name">Hong Kong Chinese</div>
+    <div class="spot-desc">Solid Chinese takeout on Virginia Ave. Fresh ingredients, no MSG. Cash-friendly.</div>
+  </a>
+
+  <a class="spot" href="https://bluebeardindy.com/food/" target="_blank">
+    <div class="spot-name">Bluebeard</div>
+    <div class="spot-desc">Farm-to-table in a converted warehouse. James Beard semifinalist. Great cocktails.</div>
+  </a>
+
+  <a class="spot" href="https://samssilvercircle.com/" target="_blank">
+    <div class="spot-name">Sam's Silver Circle</div>
+    <div class="spot-desc">Fountain Square's original dive bar. Pizza, craft beer, darts, karaoke Wednesdays.</div>
+  </a>
+
+  <a class="spot" href="https://www.geraldinesindy.com/" target="_blank">
+    <div class="spot-name">Geraldine's Supper Club</div>
+    <div class="spot-desc">1940s-style steakhouse with live jazz. Dry-aged steaks, seafood, classic cocktails. Reservations recommended.</div>
+  </a>
+
+  <a class="spot" href="https://www.maialinaindy.com/eat-menu" target="_blank">
+    <div class="spot-name">Maialina Italian Kitchen</div>
+    <div class="spot-desc">Next-gen Italian. Handmade pasta, wood-fired flatbreads, Aperol spritzes. Cozy trattoria vibe.</div>
+  </a>
+
+  <a class="spot" href="https://kumascorner.com/menu/" target="_blank">
+    <div class="spot-name">Kuma's Corner</div>
+    <div class="spot-desc">Chicago-born burger joint. Award-winning burgers, craft beer, heavy metal soundtrack.</div>
+  </a>
+
+  <a class="spot" href="https://fletcherplace.co/" target="_blank">
+    <div class="spot-name">Hotel Tango Distillery</div>
+    <div class="spot-desc">Veteran-owned craft distillery. Cocktail flights, cozy fireside seating. Walking distance.</div>
+  </a>
+
+  <a class="spot" href="https://chillywaterbrewing.com/indianapolis-chilly-water-brewing-food-menu" target="_blank">
+    <div class="spot-name">Chilly Water Brewing</div>
+    <div class="spot-desc">Award-winning local brewery. 12 beers on tap, pub food, live music. Right across from Hotel Tango.</div>
+  </a>
+
+  <a class="spot" href="https://www.garageindy.com/vendors" target="_blank">
+    <div class="spot-name">The Garage Food Hall</div>
+    <div class="spot-desc">20+ vendors under one roof in the Bottleworks District — lobster rolls, ramen, BBQ, sushi, poke, arepas, pizza, and more. Plus bars, a racing sim, and a barbershop. ~10 min north.</div>
+  </a>
+</section>
+
+<!-- ═══ ENTERTAINMENT ═══ -->
+<section class="section">
+  <div class="section-title">Entertainment</div>
+
+  <a class="spot" href="https://fountainsquareindy.com/atomic-retro-duckpin-bowling-indianapolis/" target="_blank">
+    <div class="spot-name">Atomic Duckpin Bowling</div>
+    <div class="spot-desc">Retro duckpin bowling inside the Fountain Square Theatre Building. Smaller balls, vintage vibes, full bar. Reserve a lane ahead of time.</div>
+  </a>
+
+  <a class="spot" href="https://www.tappersarcadebar.com/" target="_blank">
+    <div class="spot-name">Tapper's Arcade Bar</div>
+    <div class="spot-desc">60+ free-to-play arcade games &amp; 24 pinball machines. Craft beer &amp; cocktails. 21+ only.</div>
+  </a>
+
+  <a class="spot" href="https://www.16-bitbar.com/indianapolis" target="_blank">
+    <div class="spot-name">16-Bit Bar + Arcade</div>
+    <div class="spot-desc">Retro console games, classic cabinets, whiskey cocktails with bacon. On Mass Ave, a short drive north.</div>
+  </a>
+
+  <a class="spot" href="https://hifiindy.com/" target="_blank">
+    <div class="spot-name">HI-FI</div>
+    <div class="spot-desc">Intimate 400-capacity live music venue in the heart of Fountain Square. Shows nearly every night. Check their site for the lineup.</div>
+  </a>
+
+  <a class="spot" href="https://indianapolis.heliumcomedy.com/" target="_blank">
+    <div class="spot-name">Helium Comedy Club</div>
+    <div class="spot-desc">National headliners in an intimate downtown room. Full food &amp; drink menu. ~10 min drive from Fountain Square.</div>
+  </a>
+</section>
+
+<!-- ═══ GOOD TO KNOW ═══ -->
+<section class="section">
+  <div class="section-title">Good to Know</div>
+
+  <div class="card">
+    <div class="info-item">
+      <strong>Indianapolis Cultural Trail</strong>
+      <p>An 8-mile urban trail that connects Fountain Square to downtown, Mass Ave, and other neighborhoods. Great for walking, running, or biking. You can pick it up right on Virginia Ave — it runs directly through the neighborhood. <a href="https://www.indyculturaltrail.org/" target="_blank">indyculturaltrail.org</a></p>
+    </div>
+
+    <div class="info-item">
+      <strong>Pacers Bikeshare</strong>
+      <p>Rental bike stations are scattered along the Cultural Trail, including in Fountain Square. Grab one with the app and ride to downtown, Mass Ave, or Broad Ripple. A quick, fun way to get around without a car.</p>
+    </div>
+
+    <div class="info-item">
+      <strong>Rideshare &amp; Getting Around</strong>
+      <p>Uber and Lyft both work well in Indy. Downtown is about a 5-minute drive (or a 20-minute walk on the Cultural Trail). Mass Ave is about 10 minutes north.</p>
+    </div>
+
+    <div class="info-item">
+      <strong>Groceries &amp; Essentials</strong>
+      <p>The nearest full grocery store is Kroger on South East St (~5 min drive). For quick essentials, there's a CVS on Shelby St just south of Fountain Square.</p>
+    </div>
+
+    <div class="info-item">
+      <strong>Nearest Hospital</strong>
+      <p>Community Hospital East — about a 5 minute drive. For urgent care, IU Health is ~10 min south on Shelby St.</p>
+    </div>
+
+    <div class="info-item">
+      <strong>Fountain Square Vibe</strong>
+      <p>The neighborhood is walkable, artsy, and safe. Most restaurants and bars are clustered along Virginia Ave and Prospect St. Weekends can get lively — street parking fills up, so arrive early if you're heading out on a Friday or Saturday night.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section">
+  <div class="section-title">Contact</div>
+  <div class="card">
+    <p>Questions? Reach out anytime.</p>
+    <div class="contact-row">
+      <a href="tel:+13175551234" class="contact-btn primary">Call</a>
+      <a href="sms:+13175551234" class="contact-btn secondary">Text</a>
+    </div>
+  </div>
+</section>
+
+<div class="footer">Made with care for our guests</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+function copy(t) {
+  navigator.clipboard.writeText(t).catch(() => {
+    const a = document.createElement('textarea');
+    a.value = t; document.body.appendChild(a);
+    a.select(); document.execCommand('copy');
+    document.body.removeChild(a);
+  });
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1400);
+}
+</script>
+</body>
+</html>
