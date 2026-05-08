@@ -121,6 +121,14 @@
     font-weight: 600;
   }
 
+  .spot-price {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
   .spot-desc {
     font-size: 13px;
     color: var(--text-soft);
@@ -199,7 +207,7 @@
 <body>
 
 <div class="hero">
-  <h1>Welcome</h1>
+  <h1>Welcome!</h1>
   <p>Your Fountain Square guest guide.</p>
 </div>
 
@@ -213,6 +221,7 @@
       <code>1130</code>
       <span>Copy</span>
     </div>
+    <p style="margin-top:10px; font-size:13px;">Interior door requires <strong>#</strong> after the code.</p>
   </div>
 
   <div class="card">
@@ -231,7 +240,7 @@
 
   <div class="card">
     <h3>🅿️ Parking</h3>
-    <p>Carport in the back is available for you; free street parking is also available. </p>
+    <p>The carport in the back is available for you. Additionally, free street parking is available.</p>
   </div>
 </section>
 
@@ -240,7 +249,6 @@
   <div class="section-title">House Rules</div>
   <div class="card">
     <p><strong>Check-out:</strong> 11:00 AM</p>
-    <p><strong>Quiet hours:</strong> After 10 PM</p>
     <p><strong>No smoking</strong> indoors</p>
     <p><strong>Please lock up</strong> when you leave</p>
   </div>
@@ -252,86 +260,103 @@
 
   <a class="spot" href="https://order.toasttab.com/online/hotboys-indianapolis-fountain-square" target="_blank">
     <div class="spot-name">World Famous Hot Boys</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Oakland-style hot chicken. Pick your spice level. Trivia nights &amp; arcade games.</div>
   </a>
 
   <a class="spot" href="https://locomexicanrestaurant.com/" target="_blank">
     <div class="spot-name">Loco Mexican Restaurant</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Great margaritas, fajitas, and barbacoa tacos. Family-friendly with a patio.</div>
   </a>
 
   <a class="spot" href="https://yasogrill.com/indianapolis-fountain-square-yaso-grill-food-menu" target="_blank">
     <div class="spot-name">Yaso Jamaican Grill</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Family-owned. Jerk chicken, oxtails, curry goat. Authentic Jamaican flavors.</div>
   </a>
 
   <a class="spot" href="https://www.thedugoutindy.com/" target="_blank">
     <div class="spot-name">The Dugout</div>
+    <div class="spot-price">$</div>
     <div class="spot-desc">No-frills neighborhood pub. Solid bar food, cheap drinks, great patio.</div>
   </a>
 
   <a class="spot" href="https://www.parlordoughnuts.com/menu" target="_blank">
     <div class="spot-name">Parlor Doughnuts</div>
+    <div class="spot-price">$</div>
     <div class="spot-desc">New in Fountain Square. Famous layered doughnuts, specialty coffee, keto &amp; vegan options.</div>
   </a>
 
   <a class="spot" href="https://siamsquareindy.com/" target="_blank">
     <div class="spot-name">Siam Square</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Best Thai in Indy. Drunken noodles, green curry, pad thai. On Virginia Ave.</div>
   </a>
 
   <a class="spot" href="https://www.sqrscoop.com/" target="_blank">
     <div class="spot-name">Square Scoop</div>
+    <div class="spot-price">$</div>
     <div class="spot-desc">Local ice cream shop. Rotating flavors, shakes, vintage candy &amp; bottled sodas.</div>
   </a>
 
   <a class="spot" href="https://order.toasttab.com/online/upland-brewing-fountain-square-1201-prospect-street" target="_blank">
     <div class="spot-name">Upland Brewery</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">22 beers on tap, pub classics, huge patio. Dog-friendly. Right off the Cultural Trail.</div>
   </a>
 
   <a class="spot" href="https://www.hongkongchinain.com/" target="_blank">
     <div class="spot-name">Hong Kong Chinese</div>
+    <div class="spot-price">$</div>
     <div class="spot-desc">Solid Chinese takeout on Virginia Ave. Fresh ingredients, no MSG. Cash-friendly.</div>
   </a>
 
   <a class="spot" href="https://bluebeardindy.com/food/" target="_blank">
     <div class="spot-name">Bluebeard</div>
+    <div class="spot-price">$$$</div>
     <div class="spot-desc">Farm-to-table in a converted warehouse. James Beard semifinalist. Great cocktails.</div>
   </a>
 
   <a class="spot" href="https://samssilvercircle.com/" target="_blank">
     <div class="spot-name">Sam's Silver Circle</div>
+    <div class="spot-price">$</div>
     <div class="spot-desc">Fountain Square's original dive bar. Pizza, craft beer, darts, karaoke Wednesdays.</div>
   </a>
 
   <a class="spot" href="https://www.geraldinesindy.com/" target="_blank">
     <div class="spot-name">Geraldine's Supper Club</div>
+    <div class="spot-price">$$$$</div>
     <div class="spot-desc">1940s-style steakhouse with live jazz. Dry-aged steaks, seafood, classic cocktails. Reservations recommended.</div>
   </a>
 
   <a class="spot" href="https://www.maialinaindy.com/eat-menu" target="_blank">
     <div class="spot-name">Maialina Italian Kitchen</div>
+    <div class="spot-price">$$$</div>
     <div class="spot-desc">Next-gen Italian. Handmade pasta, wood-fired flatbreads, Aperol spritzes. Cozy trattoria vibe.</div>
   </a>
 
   <a class="spot" href="https://kumascorner.com/menu/" target="_blank">
     <div class="spot-name">Kuma's Corner</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Chicago-born burger joint. Award-winning burgers, craft beer, heavy metal soundtrack.</div>
   </a>
 
-  <a class="spot" href="https://fletcherplace.co/" target="_blank">
+  <a class="spot" href="https://hoteltangodistillery.com/" target="_blank">
     <div class="spot-name">Hotel Tango Distillery</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Veteran-owned craft distillery. Cocktail flights, cozy fireside seating. Walking distance.</div>
   </a>
 
   <a class="spot" href="https://chillywaterbrewing.com/indianapolis-chilly-water-brewing-food-menu" target="_blank">
     <div class="spot-name">Chilly Water Brewing</div>
+    <div class="spot-price">$$</div>
     <div class="spot-desc">Award-winning local brewery. 12 beers on tap, pub food, live music. Right across from Hotel Tango.</div>
   </a>
 
   <a class="spot" href="https://www.garageindy.com/vendors" target="_blank">
     <div class="spot-name">The Garage Food Hall</div>
+    <div class="spot-price">$ – $$</div>
     <div class="spot-desc">20+ vendors under one roof in the Bottleworks District — lobster rolls, ramen, BBQ, sushi, poke, arepas, pizza, and more. Plus bars, a racing sim, and a barbershop. ~10 min north.</div>
   </a>
 </section>
@@ -409,8 +434,8 @@
   <div class="card">
     <p>Questions? Reach out anytime.</p>
     <div class="contact-row">
-      <a href="tel:+13173639139" class="contact-btn primary">Call</a>
-      <a href="sms:+13173639139" class="contact-btn secondary">Text</a>
+      <a href="tel:+13175551234" class="contact-btn primary">Call</a>
+      <a href="sms:+13175551234" class="contact-btn secondary">Text</a>
     </div>
   </div>
 </section>
